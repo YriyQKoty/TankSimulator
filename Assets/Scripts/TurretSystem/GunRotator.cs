@@ -6,18 +6,11 @@ namespace TurretSystem
     /// <summary>
     /// Rotates a gun
     /// </summary>
-    public class GunRotator : MonoBehaviour
+    public class GunRotator
     {
-        [Header("Angles")]
-        [Range(-10, 5)] [SerializeField] private float minRotationAngle;
-        [Range(15, 25)] [SerializeField] private float maxRotationAngle;
-
-        private Transform _transform;
-
-        private void Start()
+        public void Rotate(Transform rotator, float zAngle)
         {
-            ///
-            _transform = transform;
+            rotator.localEulerAngles = new Vector3(0,0,zAngle);
         }
     }
 }

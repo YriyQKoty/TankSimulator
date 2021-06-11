@@ -3234,6 +3234,10 @@ MonoBehaviour:
   rotationVelocity: 10
   turretRotationSpeed: 10
   rotationBody: {fileID: 3688515844989464709}
+  gunRotator: {fileID: 3688515845725015628}
+  minRotationAngle: -5
+  maxRotationAngle: 10
+  _camera: {fileID: 3688515844809697354}
 --- !u!54 &3688515845770054466
 Rigidbody:
   m_ObjectHideFlags: 0

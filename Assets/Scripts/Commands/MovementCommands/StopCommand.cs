@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Controllers;
+using UnityEngine;
 
 namespace Commands.MovementCommands
 {
@@ -7,9 +8,9 @@ namespace Commands.MovementCommands
     /// </summary>
     public class StopCommand : ICommand
     {
-        TankUnit _tank;
+        TankController _tank;
 
-        public StopCommand(TankUnit tank)
+        public StopCommand(TankController tank)
         {
             if (tank == null)
             {

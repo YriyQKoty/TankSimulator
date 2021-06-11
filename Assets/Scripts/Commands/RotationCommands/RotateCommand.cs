@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Controllers;
+using UnityEngine;
 
 namespace Commands.RotationCommands
 {
@@ -10,8 +11,8 @@ namespace Commands.RotationCommands
         /// <summary>
         /// Tank instance
         /// </summary>
-        TankUnit _tank;
-        public RotateCommand(TankUnit tank)
+        TankController _tank;
+        public RotateCommand(TankController tank)
         {
             if (tank == null)
             {

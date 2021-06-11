@@ -1,12 +1,13 @@
-﻿using UnityEngine;
+﻿using Controllers;
+using UnityEngine;
 
 namespace Commands.RotationCommands
 {
-    public class TurretRotation : ICommand
+    public class TurretRotateCommand : ICommand
     {
-        private TankUnit _tank;
+        private TankController _tank;
 
-        public TurretRotation(TankUnit tank)
+        public TurretRotateCommand(TankController tank)
         {
             if (tank == null)
             {

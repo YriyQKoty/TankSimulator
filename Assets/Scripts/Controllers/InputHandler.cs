@@ -12,7 +12,7 @@ namespace Controllers
         /// <summary>
         /// Tank instance
         /// </summary>
-        [SerializeField] private TankUnit tank;
+        [SerializeField] private TankController tankController;
 
         /// <summary>
         /// Collection of movement commands
@@ -33,12 +33,13 @@ namespace Controllers
         /// </summary>
         private void InitCommands()
         {
-            moveCommands.Add(new ForwardMove(tank));
-            moveCommands.Add(new BackwardMove(tank));
-            moveCommands.Add(new StopCommand(tank));
+            moveCommands.Add(new MoveCommand(tankController, Direction.Forward));
+            moveCommands.Add(new MoveCommand(tankController, Direction.Backward));
+            moveCommands.Add(new StopCommand(tankController));
         
-            rotationCommands.Add(new RotateCommand(tank));
-            rotationCommands.Add(new TurretRotation(tank));
+            rotationCommands.Add(new RotateCommand(tankController));
+            rotationCommands.Add(new TurretRotateCommand(tankController));
+            rotationCommands.Add(new GunRotateCommand(tankController));
         }
     
         void FixedUpdate()
