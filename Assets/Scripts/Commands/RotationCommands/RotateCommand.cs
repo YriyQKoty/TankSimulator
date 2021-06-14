@@ -37,6 +37,7 @@ namespace Commands.RotationCommands
         /// <returns></returns>
         public bool CanExecute()
         {
+            //checking users input
             return Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) ||
                    Input.GetKey(KeyCode.LeftArrow);
         }

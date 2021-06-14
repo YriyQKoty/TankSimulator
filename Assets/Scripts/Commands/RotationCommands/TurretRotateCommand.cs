@@ -20,7 +20,8 @@ namespace Commands.RotationCommands
         
         public void Execute()
         {
-            _tank.RotateTurret(0,Input.GetAxis("Mouse X"),0);
+            //sends command to a tank to rotate turret on given euler angles
+            _tank.RotateTurret(new Vector3(0,Input.GetAxis("Mouse X"),0));
         }
 
         public bool CanExecute()

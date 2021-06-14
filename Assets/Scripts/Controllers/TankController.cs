@@ -24,7 +24,7 @@ namespace Controllers
         private Turret _turret;
 
         /// <summary>
-        /// RigidBody
+        /// Tank RigidBody
         /// </summary>
         private Rigidbody _rigidbody;
 
@@ -57,7 +57,7 @@ namespace Controllers
         [Header("Angles")] [Range(-5, 0)] [SerializeField]
         private float minRotationAngle;
 
-        [Range(5, 10)] [SerializeField] private float maxRotationAngle;
+        [Range(5, 25)] [SerializeField] private float maxRotationAngle;
 
        [SerializeField] private Camera _camera;
 
@@ -96,6 +96,9 @@ namespace Controllers
         /// </summary>
         public Turret Turret => _turret;
 
+        /// <summary>
+        /// Accessor for gun rotator
+        /// </summary>
         public Transform GunRotator => gunRotator;
 
         #endregion
@@ -106,6 +109,7 @@ namespace Controllers
         {
             _rigidbody = GetComponent<Rigidbody>();
             _rigidbody.centerOfMass = Vector3.back;
+            //creating turret component with a gun rotator
             _turret = new Turret(gunRotator);
         }
 
@@ -122,6 +126,7 @@ namespace Controllers
         {
             if (_rigidbody.velocity.magnitude <= velocity)
             {
+                //give a command to engine to move rigidbody with a speed as vertical input (W/S keys) multiplied by velocity
                 _engine.Move(_rigidbody, verticalDelta * velocity);
             }
         }
@@ -132,6 +137,7 @@ namespace Controllers
         /// <param name="rotationAroundY"></param>
         public void TurnBody(Vector3 rotationAroundY)
         {
+            //defining delta for rotating a rigidbody as a Quaterinion of rotation around Y axis multiplied by fixedDeltaTime
             var deltaRotation = Quaternion.Euler(rotationAroundY * Time.fixedDeltaTime);
             _steering.Rotate(_rigidbody, deltaRotation);
         }
@@ -144,10 +150,16 @@ namespace Controllers
             _engine.Stop(_rigidbody);
         }
 
-        public void RotateTurret(float xAngle, float yAngle, float zAngle)
+        /// <summary>
+        /// Rotates turret with given angles
+        /// </summary>
+        /// <param name="xAngle"></param>
+        /// <param name="yAngle"></param>
+        /// <param name="zAngle"></param>
+        public void RotateTurret(Vector3 eulerAngles)
         {
             _turret.Rotate(rotationBody,
-                new Quaternion(xAngle, yAngle * turretRotationSpeed * Time.deltaTime, zAngle, 1));
+                new Quaternion(eulerAngles.x, eulerAngles.y * turretRotationSpeed * Time.deltaTime, eulerAngles.z, 1));
         }
 
         #endregion

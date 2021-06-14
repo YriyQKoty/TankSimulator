@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Commands.MovementCommands
 {
     /// <summary>
-    /// Command which moves tank forward
+    /// Command which moves tank
     /// </summary>
     public class MoveCommand : ICommand
     {
@@ -20,6 +20,11 @@ namespace Commands.MovementCommands
 
         private float _currentVelocity;
 
+        /// <summary>
+        /// Creates a command for a tank with direction
+        /// </summary>
+        /// <param name="tank"></param>
+        /// <param name="direction"></param>
         public MoveCommand(TankController tank, Direction direction)
         {
             if (tank == null)
@@ -30,6 +35,7 @@ namespace Commands.MovementCommands
 
             _tank = tank;
             _direction = direction;
+            //assign current velocity depending on a direction
             _currentVelocity = direction == Direction.Forward ? _tank.FrontalVelocity : _tank.BackwardVelocity;
         }
 
@@ -39,7 +45,7 @@ namespace Commands.MovementCommands
         public void Execute()
         {
             var verticalDelta = Input.GetAxis("Vertical");
-            _tank.Move(verticalDelta, _tank.FrontalVelocity);
+            _tank.Move(verticalDelta, _currentVelocity);
         }
 
         /// <summary>
@@ -48,11 +54,13 @@ namespace Commands.MovementCommands
         /// <returns></returns>
         public bool CanExecute()
         {
+            //if moving forward - check for right input 
             if (_direction == Direction.Forward)
             {
                 return (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow));
             }
 
+            //if moving backward - check for right input 
             if (_direction == Direction.Backward)
             {
                 return (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow));
@@ -62,6 +70,9 @@ namespace Commands.MovementCommands
         }
     }
 
+    /// <summary>
+    /// Types of movement
+    /// </summary>
     public enum Direction
     {
         Forward,
