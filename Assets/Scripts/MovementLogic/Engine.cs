@@ -13,7 +13,7 @@ namespace MovementLogic
         public void Move(Rigidbody rigidbody, float speed)
         {
             //setting rigidbody velocity as a vector multiplied by speed
-            rigidbody.velocity = rigidbody.transform.right * speed;
+            rigidbody.velocity = rigidbody.transform.forward * speed;
         }
  
         /// <summary>

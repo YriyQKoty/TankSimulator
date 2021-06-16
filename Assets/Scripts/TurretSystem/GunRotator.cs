@@ -8,9 +8,9 @@ namespace TurretSystem
     /// </summary>
     public class GunRotator
     {
-        public void Rotate(Transform rotator, float zAngle)
+        public void Rotate(Transform rotator, float angle)
         {
-            rotator.localEulerAngles = new Vector3(0,0,zAngle);
+            rotator.localEulerAngles = new Vector3(-angle, 0,0);
         }
     }
 }
