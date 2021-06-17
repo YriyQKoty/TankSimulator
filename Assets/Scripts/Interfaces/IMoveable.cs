@@ -8,11 +8,11 @@ namespace Interfaces
     public interface IMoveable
     {
         /// <summary>
-        /// Moves a rigidbody
+        /// Moves gameobject
         /// </summary>
         /// <param name="rigidbody"></param>
         /// <param name="speed"></param>
-        void Move(Rigidbody rigidbody, float speed);
+        void Move(float speed); 
         /// <summary>
         /// Stops rigidbody
         /// </summary>

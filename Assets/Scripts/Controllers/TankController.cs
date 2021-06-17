@@ -7,11 +7,12 @@ namespace Controllers
     public class TankController : MonoBehaviour
     {
         #region DataFields
-
+        
+ 
         /// <summary>
-        /// Engine component
+        /// Track system controller component
         /// </summary>
-        private Engine _engine = new Engine();
+        [SerializeField] private TrackSystemController _trackSystemController;
 
         /// <summary>
         /// Steering component
@@ -27,6 +28,8 @@ namespace Controllers
         /// Tank RigidBody
         /// </summary>
         private Rigidbody _rigidbody;
+
+        [SerializeField] private Transform centerOfMass;
 
         /// <summary>
         /// Frontal speed
@@ -108,7 +111,7 @@ namespace Controllers
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
-            _rigidbody.centerOfMass = Vector3.back;
+            _rigidbody.centerOfMass = centerOfMass.localPosition;
             //creating turret component with a gun rotator
             _turret = new Turret(gunRotator);
         }
@@ -127,7 +130,7 @@ namespace Controllers
             if (_rigidbody.velocity.magnitude <= velocity)
             {
                 //give a command to engine to move rigidbody with a speed as vertical input (W/S keys) multiplied by velocity
-                _engine.Move(_rigidbody, verticalDelta * velocity);
+                _trackSystemController.Move(verticalDelta * velocity);
             }
         }
 
@@ -147,7 +150,7 @@ namespace Controllers
         /// </summary>
         public void Stop()
         {
-            _engine.Stop(_rigidbody);
+            _trackSystemController.Stop(_rigidbody);
         }
 
         /// <summary>
