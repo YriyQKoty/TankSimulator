@@ -146,7 +146,7 @@ TerrainCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171613692}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b3070f31cd2808c428d15b9ae62b2db2, type: 2}
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: d661304dc65704f41a7a6bde84db2510, type: 2}
   m_EnableTreeColliders: 1
@@ -160,21 +160,21 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: d661304dc65704f41a7a6bde84db2510, type: 2}
-  m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
-  m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
-  m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
-  m_SplatMapDistance: 1000
+  m_TreeDistance: 1877
+  m_TreeBillboardDistance: 72
+  m_TreeCrossFadeLength: 45.9
+  m_TreeMaximumFullLODCount: 154
+  m_DetailObjectDistance: 47.6
+  m_DetailObjectDensity: 0.694
+  m_HeightmapPixelError: 1.4
+  m_SplatMapDistance: 10522
   m_HeightmapMaximumLOD: 0
   m_ShadowCastingMode: 2
   m_DrawHeightmap: 1
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: 636f6f36f64becc4c80af4540b8b5bac, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -1272,10 +1272,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2526201946460039544, guid: d1a64ad999f6d3442a68f34570d67f19,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526201946460039544, guid: d1a64ad999f6d3442a68f34570d67f19,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526201946460039544, guid: d1a64ad999f6d3442a68f34570d67f19,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2526201946460039545, guid: d1a64ad999f6d3442a68f34570d67f19,
         type: 3}
       propertyPath: m_Name
       value: TankK
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526201946460039547, guid: d1a64ad999f6d3442a68f34570d67f19,
+        type: 3}
+      propertyPath: frontalVelocity
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526201946460039547, guid: d1a64ad999f6d3442a68f34570d67f19,
+        type: 3}
+      propertyPath: rotationVelocity
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1a64ad999f6d3442a68f34570d67f19, type: 3}
