@@ -91,11 +91,11 @@ namespace MovementLogic
         public float rotateOnStandBrakeTorque = 500.0f; //2
         public float maxBrakeTorque = 1000.0f; //3
         public float forwardTorque = 500.0f; //1
-        public float rotateOnMoveBrakeTorque = 400.0f; //2 
+       // public float rotateOnMoveBrakeTorque = 400.0f; //2 
         public float minBrakeTorque = 0.0f; //3 
-        public float minOnStayStiffness = 0.06f; //4 
-        public float minOnMoveStiffness = 0.05f;  //5 
-        public float rotateOnMoveMultiply = 2.0f; //6
+        // public float minOnStayStiffness = 0.06f; //4 
+        // public float minOnMoveStiffness = 0.05f;  //5 
+        // public float rotateOnMoveMultiply = 2.0f; //6
         
         public void CalculateMotorForce(WheelCollider col, float accel, float steer = 0){  //6
             
@@ -112,17 +112,17 @@ namespace MovementLogic
                 col.brakeTorque = minBrakeTorque;  //9 
                 col.motorTorque = accel*forwardTorque;  //10 
 					 
-                if(steer < 0){ //11 
-                    col.brakeTorque = rotateOnMoveBrakeTorque; //12 
-                    col.motorTorque = steer*forwardTorque*rotateOnMoveMultiply;//13 
-                    fc.stiffness = 1.0f + minOnMoveStiffness - Mathf.Abs(steer);  //14 
-                } 
+                // if(steer < 0){ //11 
+                //     col.brakeTorque = rotateOnMoveBrakeTorque; //12 
+                //     col.motorTorque = steer*forwardTorque*rotateOnMoveMultiply;//13 
+                //     fc.stiffness = 1.0f + minOnMoveStiffness - Mathf.Abs(steer);  //14 
+                // } 
 		 
-                if(steer > 0){ //15 
-			 
-                    col.motorTorque = steer*forwardTorque*rotateOnMoveMultiply;//16 
-                    fc.stiffness = 1.0f + minOnMoveStiffness - Mathf.Abs(steer); //17
-                } 
+                // if(steer > 0){ //15 
+			             //
+                //     col.motorTorque = steer*forwardTorque*rotateOnMoveMultiply;//16 
+                //     fc.stiffness = 1.0f + minOnMoveStiffness - Mathf.Abs(steer); //17
+                // } 
 		 
 					 
             } 
