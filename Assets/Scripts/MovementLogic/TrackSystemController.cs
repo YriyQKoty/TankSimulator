@@ -37,12 +37,12 @@ namespace MovementLogic
             //initialising left and right wheels
             for (int i = 0; i < leftTrackWheelsTransforms.Length; i++)
             {
-                leftTrackWheels[i] = new Wheel(leftTrackWheelsTransforms[i], leftTrackBones[i]);
+                leftTrackWheels[i] = new Wheel(leftTrackWheelsTransforms[i], leftTrackBones[i], leftTrackWheelsTransforms[i].GetComponentInParent<WheelCollider>());
             }
 
             for (int i = 0; i < rightTrackWheelsTransforms.Length; i++)
             {
-                rightTrackWheels[i] = new Wheel(rightTrackWheelsTransforms[i], rightTrackBones[i]);
+                rightTrackWheels[i] = new Wheel(rightTrackWheelsTransforms[i], rightTrackBones[i], rightTrackWheelsTransforms[i].GetComponentInParent<WheelCollider>());
             }
         }
 
@@ -187,7 +187,7 @@ namespace MovementLogic
             //updating textures
             
             RotateUpperWheels();
-
+ 
          
         }
 
@@ -200,7 +200,15 @@ namespace MovementLogic
         /// <param name="rigidbody"></param>
         public void Stop(Rigidbody rigidbody)
         {
-            return;
+            foreach (var wheel in leftTrackWheels)
+            {
+                wheel.Collider.brakeTorque = Mathf.Infinity;
+            }
+
+            foreach (var wheel in rightTrackWheels)
+            {
+                wheel.Collider.brakeTorque = Mathf.Infinity;
+            }
         }
     }
 }

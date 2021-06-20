@@ -19,14 +19,14 @@ namespace TrackSystem
 
             public Quaternion StartWheelAngle => _startWheelAngle;
 
-            public Wheel(Transform transform, Transform bone)
+            public Wheel(Transform transform, Transform bone, WheelCollider collider)
             {
                 _wheelTransform = transform;
                 _boneTransform = bone;
 
                 _suspensionOffset = 0.05f;
 
-                _collider = _wheelTransform.gameObject.GetComponent<WheelCollider>();
+                _collider = collider;
 
                 _wheelStartPos = transform.localPosition;
                 _boneStartPos = bone.localPosition;

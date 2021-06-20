@@ -108,7 +108,7 @@ namespace Controllers
 
         #region BuiltInMethods
 
-        private void Start()
+        private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
             _rigidbody.centerOfMass = centerOfMass.localPosition;
