@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletSpawner : MonoBehaviour
 {
+    public ParticleSystem[] smokeEffects;
     public GameObject bulletPrefab;
 
     private bool _canShoot = true;
@@ -24,6 +25,11 @@ public class BulletSpawner : MonoBehaviour
     
     private IEnumerator Shoot()
     {
+        foreach (var system in smokeEffects)
+        {
+            system.Play();
+        }
+        
         var bullet = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation).GetComponent<Rigidbody>();
 
         bullet.velocity = force * spawnPoint.forward;
