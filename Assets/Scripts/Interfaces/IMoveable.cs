@@ -14,9 +14,8 @@ namespace Interfaces
         /// <param name="speed"></param>
         void Move(float speed); 
         /// <summary>
-        /// Stops rigidbody
+        /// Stops gameobject
         /// </summary>
-        /// <param name="rigidbody"></param>
-        void Stop(Rigidbody rigidbody);
+        void Stop();
     }
 }

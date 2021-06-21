@@ -8,7 +8,6 @@ namespace Controllers
     {
         #region DataFields
         
- 
         /// <summary>
         /// Track system controller component
         /// </summary>
@@ -28,19 +27,32 @@ namespace Controllers
         /// Tank RigidBody
         /// </summary>
         private Rigidbody _rigidbody;
-
+        
         [SerializeField] private Transform centerOfMass;
-
+        
+       
         /// <summary>
         /// Frontal speed
         /// </summary>
-        [Header("Engine speeds")] [Range(5, 10)] [SerializeField]
-        private int frontalVelocity = 5;
+        [Header("Engine speeds")] [Range(20, 60)] [SerializeField]
+        private int frontalVelocity = 30;
 
+  
         /// <summary>
         /// Backward speed
         /// </summary>
-        [Range(2, 5)] [SerializeField] private int backwardVelocity = 2;
+        [Range(10, 25)] [SerializeField] private int backwardVelocity = 15;
+        
+        /// <summary>
+        /// Curve for torque value (moving backward)
+        /// </summary>
+        [Header("Torque curves")][SerializeField] AnimationCurve backwardVelTorque = AnimationCurve.Linear(0, 50, 50, 0);
+        /// <summary>
+        /// Curve for torque value (moving forward)
+        /// </summary>
+        [SerializeField] AnimationCurve frontalVelTorque = AnimationCurve.Linear(0, 200, 50, 0);
+
+
 
         /// <summary>
         /// Rotation speed
@@ -65,6 +77,8 @@ namespace Controllers
        [SerializeField] private Camera _camera;
 
         public Camera Camera => _camera;
+
+        private float currentVelocity;
         #endregion
         
         #region Properties
@@ -73,11 +87,14 @@ namespace Controllers
         /// Accessor for frontal speed
         /// </summary>
         public int FrontalVelocity => frontalVelocity;
+        public AnimationCurve FrontalVelTorque => frontalVelTorque;
 
         /// <summary>
         /// Accessor for backward speed
         /// </summary>
         public int BackwardVelocity => backwardVelocity;
+        public AnimationCurve BackwardVelTorque => backwardVelTorque;
+
 
         /// <summary>
         /// Accessor for rotation speed
@@ -127,11 +144,15 @@ namespace Controllers
         /// <param name="velocity">speed</param>
         public void Move(float verticalDelta, float velocity)
         {
-            if (_rigidbody.velocity.magnitude <= velocity)
+            //calculates current tank speed
+            currentVelocity = 2 * Mathf.PI * _trackSystemController.RPM * 60 / 1000f;
+            if (Mathf.Abs(currentVelocity) > velocity)
             {
-                //give a command to engine to move rigidbody with a speed as vertical input (W/S keys) multiplied by velocity
-                _trackSystemController.Move(verticalDelta * velocity);
+                _trackSystemController.OnSpeedLimit();
             }
+            
+            _trackSystemController.Move(verticalDelta * velocity);
+           
         }
 
         /// <summary>
@@ -150,7 +171,7 @@ namespace Controllers
         /// </summary>
         public void Stop()
         {
-            _trackSystemController.Stop(_rigidbody);
+            _trackSystemController.Stop();
         }
 
         /// <summary>
