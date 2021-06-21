@@ -64,14 +64,7 @@ namespace TrackSystem
             }
             else
             {
-                if (isWheel)
-                {
-                    localPos.y = startPos.y - _suspensionOffset;
-                }
-                else
-                {
-                    localPos.y = startPos.y - _suspensionOffset/4;
-                }
+                localPos.y = startPos.y - _suspensionOffset;
             }
 
             return localPos;

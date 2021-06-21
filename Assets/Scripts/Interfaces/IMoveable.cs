@@ -10,7 +10,6 @@ namespace Interfaces
         /// <summary>
         /// Moves gameobject
         /// </summary>
-        /// <param name="rigidbody"></param>
         /// <param name="speed"></param>
         void Move(float speed); 
         /// <summary>
