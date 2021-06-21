@@ -72,7 +72,7 @@ namespace Controllers
         [Header("Angles")] [Range(-5, 0)] [SerializeField]
         private float minRotationAngle;
 
-        [Range(5, 25)] [SerializeField] private float maxRotationAngle;
+        [Range(-10, 10)] [SerializeField] private float maxRotationAngle;
 
        [SerializeField] private Camera _camera;
 
@@ -152,6 +152,7 @@ namespace Controllers
         {
             _rigidbody = GetComponent<Rigidbody>();
             _rigidbody.centerOfMass = centerOfMass.localPosition;
+            
             //creating turret component with a gun rotator
             _turret = new Turret(gunRotator);
         }

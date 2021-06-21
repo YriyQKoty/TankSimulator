@@ -49,7 +49,7 @@ namespace Controllers
             audioCommands.Add(new StopEngineSound(tankController));
             audioCommands.Add(new StopTrackSound(tankController));
 
-            shootCommand = new ShootCommand(tankController.BulletSpawner);
+            shootCommand = new ShootCommand(tankController);
         }
     
         void FixedUpdate()
