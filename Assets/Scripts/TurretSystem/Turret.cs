@@ -21,15 +21,11 @@ namespace TurretSystem
         public void Rotate(Rigidbody rigidbody, Quaternion rotation)
         {
             rigidbody.transform.Rotate(rotation.x, rotation.y, rotation.z, Space.Self);
-            
-            //...audio of turret rotation
         }
 
         public void RotateGun(float zAngle)
         {
             _rotator.Rotate(_rotatorTransform,zAngle);
-            
-            //...audio of gun rotation
         }
     }
 }

@@ -61,8 +61,8 @@ namespace Controllers
         private int rotationVelocity = 10;
 
 
-        [Space] [Header("Turret rotation speed")] [Range(5, 10)] [SerializeField]
-        private int turretRotationSpeed = 10;
+        [Space] [Header("Turret rotation per minute")] [Range(0, 2)] [SerializeField]
+        private float turretRpm = 0.5f;
 
         [SerializeField] private Rigidbody rotationBody;
 
@@ -79,6 +79,17 @@ namespace Controllers
         public Camera Camera => _camera;
 
         private float currentVelocity;
+
+
+        [Header("Bullets")] [SerializeField] private BulletSpawner _bulletSpawner;
+
+        //Sound sources
+        [Header("Sound sources")]
+        [SerializeField]private AudioSource engineSource;
+        [SerializeField]private AudioSource turretSource;
+        [SerializeField]private AudioSource trackSource;
+        [SerializeField] private AudioSource shootSource;
+        
         #endregion
         
         #region Properties
@@ -101,6 +112,8 @@ namespace Controllers
         /// </summary>
         public int RotationVelocity => rotationVelocity;
 
+
+        public float TurretRPM => turretRpm;
         /// <summary>
         /// Accessor for min rot angle
         /// </summary>
@@ -120,6 +133,16 @@ namespace Controllers
         /// Accessor for gun rotator
         /// </summary>
         public Transform GunRotator => gunRotator;
+
+        public AudioSource EngineSource => engineSource;
+
+        public AudioSource TurretSource => turretSource;
+
+        public AudioSource TrackSource => trackSource;
+
+        public AudioSource ShootSource => shootSource;
+
+        public BulletSpawner BulletSpawner => _bulletSpawner;
 
         #endregion
 
@@ -177,13 +200,11 @@ namespace Controllers
         /// <summary>
         /// Rotates turret with given angles
         /// </summary>
-        /// <param name="xAngle"></param>
-        /// <param name="yAngle"></param>
-        /// <param name="zAngle"></param>
+        /// <param name="eulerAngles"></param>
         public void RotateTurret(Vector3 eulerAngles)
         {
             _turret.Rotate(rotationBody,
-                new Quaternion(eulerAngles.x, eulerAngles.y * turretRotationSpeed * Time.deltaTime, eulerAngles.z, 1));
+                new Quaternion(eulerAngles.x, eulerAngles.y * turretRpm * Time.deltaTime, eulerAngles.z, 1));
         }
 
         #endregion

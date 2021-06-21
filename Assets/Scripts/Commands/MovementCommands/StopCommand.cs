@@ -27,7 +27,7 @@ namespace Commands.MovementCommands
 
         public bool CanExecute()
         {
-            return !Input.GetKey(KeyCode.W) || !Input.GetKey(KeyCode.S);
+            return Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D);
         }
     }
 }

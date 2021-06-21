@@ -29,6 +29,11 @@ namespace Commands.RotationCommands
         {
             var eulerAngVelocity = new Vector3(0, Input.GetAxis("Horizontal") * _tank.RotationVelocity, 0);
             _tank.TurnBody(eulerAngVelocity);
+            
+            if (!_tank.TrackSource.isPlaying)
+            {
+                SoundManager.Instance.PlayClip(_tank.TrackSource,SoundManager.Instance.EngineStart);
+            }
         }
 
         /// <summary>
@@ -38,8 +43,7 @@ namespace Commands.RotationCommands
         public bool CanExecute()
         {
             //checking users input
-            return Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) ||
-                   Input.GetKey(KeyCode.LeftArrow);
+            return Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D);
         }
     }
 }

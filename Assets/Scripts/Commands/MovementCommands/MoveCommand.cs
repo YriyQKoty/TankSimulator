@@ -46,6 +46,16 @@ namespace Commands.MovementCommands
         {
             var verticalDelta = Input.GetAxis("Vertical");
             _tank.Move(verticalDelta, _currentVelocity);
+
+            if (_tank.EngineSource.clip == SoundManager.Instance.EngineEnd)
+            {
+                _tank.EngineSource.Stop();
+            }
+
+            if (!_tank.EngineSource.isPlaying)
+            {
+                SoundManager.Instance.PlayClip(_tank.EngineSource,SoundManager.Instance.EngineMove);
+            }
         }
 
         /// <summary>
@@ -57,13 +67,13 @@ namespace Commands.MovementCommands
             //if moving forward - check for right input 
             if (_direction == Direction.Forward)
             {
-                return (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow));
+                return (Input.GetKey(KeyCode.W));
             }
 
             //if moving backward - check for right input 
             if (_direction == Direction.Backward)
             {
-                return (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow));
+                return (Input.GetKey(KeyCode.S));
             }
 
             return false;

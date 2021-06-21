@@ -21,12 +21,17 @@ namespace Commands.RotationCommands
         public void Execute()
         {
             //sends command to a tank to rotate turret on given euler angles
-            _tank.RotateTurret(new Vector3(0,Input.GetAxis("Mouse X"),0));
+            _tank.RotateTurret(new Vector3(0,Input.GetAxis("Mouse X") * _tank.TurretRPM,0));
+
+            if (!_tank.TurretSource.isPlaying)
+            {
+                SoundManager.Instance.PlayClip(_tank.TurretSource, SoundManager.Instance.TurretRotation);
+            }
         }
 
         public bool CanExecute()
         {
-            return true;
+            return Input.GetAxis("Mouse X") != 0;
         }
     }
 }
