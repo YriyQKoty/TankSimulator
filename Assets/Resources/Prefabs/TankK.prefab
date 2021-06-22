@@ -10057,24 +10057,24 @@ MonoBehaviour:
   _trackSystemController: {fileID: 6684987658678111668}
   centerOfMass: {fileID: 5606650804280818812}
   frontalVelocity: 60
-  backwardVelocity: 20
+  backwardVelocity: 17
   backwardVelTorque:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.005690962
-      value: 75
-      inSlope: -75.42926
-      outSlope: -75.42926
+      time: 0.0049165785
+      value: 47.052155
+      inSlope: -0.94113564
+      outSlope: -0.94113564
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
+      time: 50
       value: 0
-      inSlope: -75.42926
-      outSlope: -75.42926
+      inSlope: -0.94113564
+      outSlope: -0.94113564
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -15547,7 +15547,6 @@ GameObject:
   - component: {fileID: 3200691744721193716}
   - component: {fileID: 3200691744721193715}
   - component: {fileID: 3200691744721193714}
-  - component: {fileID: 3200691744721193712}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -15620,22 +15619,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3200691744721193713}
   m_Enabled: 1
---- !u!114 &3200691744721193712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3200691744721193713}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f01d854e5b63a142a0cf4ba4613b341, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sensitivity: 3
-  distance: 10
-  xMinMax: {x: -5, y: 100}
-  target: {fileID: 2526201946460039544}
 --- !u!1 &4061290181570550476
 GameObject:
   m_ObjectHideFlags: 0

@@ -2373,51 +2373,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TankK
       objectReference: {fileID: 0}
-    - target: {fileID: 2526201946460039547, guid: d1a64ad999f6d3442a68f34570d67f19,
-        type: 3}
-      propertyPath: backwardVelTorque.m_Curve.Array.data[0].inSlope
-      value: -0.94113564
-      objectReference: {fileID: 0}
-    - target: {fileID: 2526201946460039547, guid: d1a64ad999f6d3442a68f34570d67f19,
-        type: 3}
-      propertyPath: backwardVelTorque.m_Curve.Array.data[0].outSlope
-      value: -0.94113564
-      objectReference: {fileID: 0}
-    - target: {fileID: 2526201946460039547, guid: d1a64ad999f6d3442a68f34570d67f19,
-        type: 3}
-      propertyPath: backwardVelTorque.m_Curve.Array.data[1].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2526201946460039547, guid: d1a64ad999f6d3442a68f34570d67f19,
-        type: 3}
-      propertyPath: backwardVelTorque.m_Curve.Array.data[1].inSlope
-      value: -0.94113564
-      objectReference: {fileID: 0}
-    - target: {fileID: 2526201946460039547, guid: d1a64ad999f6d3442a68f34570d67f19,
-        type: 3}
-      propertyPath: backwardVelTorque.m_Curve.Array.data[1].outSlope
-      value: -0.94113564
-      objectReference: {fileID: 0}
-    - target: {fileID: 2526201946460039547, guid: d1a64ad999f6d3442a68f34570d67f19,
-        type: 3}
-      propertyPath: backwardVelTorque.m_Curve.Array.data[1].time
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 2526201946460039547, guid: d1a64ad999f6d3442a68f34570d67f19,
-        type: 3}
-      propertyPath: backwardVelTorque.m_Curve.Array.data[0].value
-      value: 47.052155
-      objectReference: {fileID: 0}
-    - target: {fileID: 2526201946460039547, guid: d1a64ad999f6d3442a68f34570d67f19,
-        type: 3}
-      propertyPath: backwardVelTorque.m_Curve.Array.data[0].time
-      value: 0.0049165785
-      objectReference: {fileID: 0}
-    - target: {fileID: 2526201946460039547, guid: d1a64ad999f6d3442a68f34570d67f19,
-        type: 3}
-      propertyPath: backwardVelocity
-      value: 17
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1a64ad999f6d3442a68f34570d67f19, type: 3}
 --- !u!114 &5296214246074096368 stripped

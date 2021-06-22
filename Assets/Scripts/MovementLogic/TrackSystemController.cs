@@ -197,9 +197,7 @@ namespace MovementLogic
 
                 CalculateMotorForce(wheel.Collider, speed);
             }
-
-            //updating textures
-
+            
             RPM = CalculateAverageRpm(rightTrackWheels);
 
             //rotating right wheels
@@ -208,9 +206,7 @@ namespace MovementLogic
                 wheel.Update(transform, RPM);
                 CalculateMotorForce(wheel.Collider, speed);
             }
-
-            //updating textures
-
+            
             RotateUpperWheels();
         }
         
