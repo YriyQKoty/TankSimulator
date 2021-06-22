@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ public class BulletSpawner : MonoBehaviour
     public bool CanShoot => _canShoot;
 
     private int timer = 0;
-    private int force = 100;
+    private int force = 250;
     
     public int timeBetweenShot = 6;
 
@@ -45,5 +46,15 @@ public class BulletSpawner : MonoBehaviour
         }
 
         _canShoot = true;
+    }
+
+    private void Update()
+    {
+        RaycastHit hit; // declare the RaycastHit variable
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+   
+        if (Physics.Raycast(ray, out hit)) {
+            Debug.DrawRay(hit.transform.position, spawnPoint.forward, Color.green);
+        }
     }
 }

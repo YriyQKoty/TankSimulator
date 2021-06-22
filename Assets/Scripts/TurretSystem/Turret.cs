@@ -20,7 +20,7 @@ namespace TurretSystem
         }
         public void Rotate(Rigidbody rigidbody, Quaternion rotation)
         {
-            rigidbody.transform.Rotate(rotation.x, rotation.y, rotation.z, Space.Self);
+           rigidbody.transform.Rotate(rotation.x, rotation.y, rotation.z, Space.Self);
         }
 
         public void RotateGun(float zAngle)
